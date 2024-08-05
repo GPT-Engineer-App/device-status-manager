@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import DeviceList from '../components/DeviceList';
 import DeviceDetails from '../components/DeviceDetails';
-import UserNotifications from '../components/UserNotifications';
 
 const Index = () => {
   const [selectedDevice, setSelectedDevice] = useState(null);
@@ -24,10 +23,7 @@ const Index = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Hardware Device Manager</h1>
-        <UserNotifications />
-      </div>
+      <h1 className="text-3xl font-bold mb-6">Hardware Device Manager</h1>
       <div className="flex flex-col md:flex-row gap-8">
         <DeviceList devices={devices} onSelectDevice={setSelectedDevice} />
         {selectedDevice && <DeviceDetails device={selectedDevice} />}
